@@ -2,6 +2,8 @@ const utils = require('contract-utils');
 const extensions = utils.testing;
 const Satellite = artifacts.require('./Satellite.sol');
 
+require('./proof-of-email-unit-tests.js');
+
 contract("Satellite", accounts => {
 
 let instance;
@@ -9,11 +11,6 @@ before('Preparation', () => {
   Satellite.deployed()
   .then(res => instance = res)
 });
-
-after('Log dump', () => {
-  let events = instance.allEvents({fromBlock: 0, toBlock: 'latest'});
-  events.get((err,res) => console.log(res));
-})
 
 describe("Module registration", () => {
   it("does not error when registering module from outside contract", () => {
@@ -38,13 +35,13 @@ describe("Entry modification", () => {
     )
   });
   it("stored the changed URL after it is modified", () => {
-    instance.showModule.call('day-trader')
+    return instance.showModule.call('day-trader')
     .then(res => assert.equal(res[1].toString(), 'newsite.io'));
   });
 })
 describe("Data access", () => {
   it("returns module data on request", () => {
-    instance.showModule.call('day-trader')
+    return instance.showModule.call('day-trader')
     .then(res => assert.isNotNull(res))
   });
 })
