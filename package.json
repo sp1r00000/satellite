@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "truffle test",
-    "local": "truffle compile && truffle deploy --network binary && truffle exec ./server/server.js --network binary",
-    "kovan": "truffle compile && truffle deploy --network kovan && truffle exec ./server/server.js --network kovan"
+    "local": "truffle deploy --network binary && truffle exec ./server/server.js --network binary",
+    "kovan": "truffle deploy --network kovan && truffle exec ./server/server.js --network kovan"
+    "build": "browserify client/app.js -o client/bundle.js"
   },
   "repository": {
     "type": "git",

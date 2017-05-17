@@ -1,7 +1,6 @@
-const Web3 = require('web3');
 const contract = require('truffle-contract');
-const satelliteArtifacts = require('../../build/contracts/Satellite.json');
-const proofOfEmailArtifacts = require('../../build/contracts/ProofOfEmail.json');
+const satelliteArtifacts = require('../build/contracts/Satellite.json');
+const proofOfEmailArtifacts = require('../build/contracts/ProofOfEmail.json');
 
 let accounts;
 let Satellite = contract(satelliteArtifacts);
@@ -23,6 +22,7 @@ window.App = {
         alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
+      console.log('Got accounts');
       accounts = accs;
     });
   },
@@ -30,15 +30,16 @@ window.App = {
   submitCode: function() {
     var code = document.getElementById('code').value;
     console.log(`Submitting code "${code}"`);
+    var token = web3.sha3(code);
+    console.log(`Submitting token "${token}"`);
     ProofOfEmail.deployed()
-    .then(instance => {
-      return instance.confirm(web3.sha3(code), {from: accounts[0]})
-    })
+    .then(instance => instance.confirm(token, {from: accounts[0]}))
     .then(res => {
+      console.log('Transaction sent');
       if(res.logs.length > 0) {
         if(res.logs[0].event == 'Confirmed')
-          alert("Congratulations, you're verified!");
-      }}
+          console.log("Congratulations, you're verified!");
+      }
     });
   }
 }

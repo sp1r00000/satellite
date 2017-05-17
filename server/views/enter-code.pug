@@ -1,13 +1,12 @@
 html
   head
     title= title
-    script(src='../client/bundle.js')
+    script(src='client/bundle.js')
   body
     h1= message
-    form()
-      div
-        label(for='code') Code: 
-        input(id='code' name='code' placeholder='Code received by email')
-      div
-        button(onclick='App.submitCode()') Submit
+    div
+      label(for='code') Code: 
+      input(id='code' name='code' placeholder='Code received by email')
+    div
+      button(onclick='App.submitCode()') Submit
 
