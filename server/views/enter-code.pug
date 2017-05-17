@@ -4,8 +4,9 @@ html
     script(src='../client/bundle.js')
   body
     h1= message
-    div
-      label(for='code') Code: 
-      input(id='code' name='code' placeholder='Code received by email')
-    div
-      button(onclick='App.submitCode()') Submit
+    form(action='/code' method='POST')
+      div
+        label(for='code') Code: 
+        input(id='code' name='code' placeholder='Code received by email')
+      div
+        button(type='submit') Submit Code
