@@ -11,8 +11,13 @@ Install dependencies with `npm install`
 
 Run tests with `npm test`
 
-Make sure you have an RPC client running (e.g. `testrpc`), then start the server with `npm start`
+### Run on local TestRPC
 
+Make sure you have an RPC client running (e.g. `testrpc`), then start the server with `npm run local`
+
+### Run on Kovan Testnet
+
+Have your parity client running in the background on port 8547, then start server with `npm run kovan`
 
 ## Sample Functionality
 
