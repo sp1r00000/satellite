@@ -63,17 +63,4 @@ router.post('/code', function (req, res) {
   .then(() => res.redirect('/checkVerification'))
 })
 
-router.post('/checkVerification', function (req, res) {
-  console.log(req.body.address);
-  ProofOfEmail.deployed()
-  .then(instance => instance.certified(req.body.address))
-  .then(confirmed => {
-    console.log(confirmed);
-    if(confirmed)
-      res.render('checkVerification', {message: 'Your address is verified!'})
-    else
-      res.render('checkVerification', {message: 'Your address is not verified.'})
-  })
-})
-
 module.exports = () => router
