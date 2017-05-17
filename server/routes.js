@@ -11,13 +11,17 @@ router.get('/', function (req, res) {
   res.render('index', { title: 'Satellite', message: 'You can either verify or browse modules' })
 })
 
-router.get('/verification', function (req, res) {
-  res.render('verification', { title: 'Verification', message: 'Verify' })
-})
-
 router.get('/modules', function (req, res) {
   res.render('shop',
     { title: 'Modules', message: 'Browse modules', modules: moduleIndex })
+})
+
+router.get('/checkVerification', function (req, res) {
+  res.render('checkVerification', {message: 'Enter address to verify'})
+})
+
+router.get('/verification', function (req, res) {
+  res.render('verification', { title: 'Verification', message: 'Verify' })
 })
 
 router.get('/code', function (req, res) {
@@ -41,7 +45,7 @@ router.post('/verification', function (req, res) {
     var request = email.sendCodeEmail(req.body.email, code);
     sg.API(request, (err, response) => {
       if(!err)
-        res.status(200).send(`Verification email sent to ${req.body.email}`);
+        res.redirect('/code');
       else
         res.status(400).send('Failure sending mail');
     });
@@ -54,11 +58,22 @@ router.post('/code', function (req, res) {
   ProofOfEmail.deployed()
   .then(instance => {
     var token = web3.sha3(req.body.code);
-    return instance.confirm(
-      web3.sha3(token, {encoding: 'hex'})
-    );
+    return instance.confirm(token);
   })
+  .then(() => res.redirect('/checkVerification'))
 })
 
+router.post('/checkVerification', function (req, res) {
+  console.log(req.body.address);
+  ProofOfEmail.deployed()
+  .then(instance => instance.certified(req.body.address))
+  .then(confirmed => {
+    console.log(confirmed);
+    if(confirmed)
+      res.render('checkVerification', {message: 'Your address is verified!'})
+    else
+      res.render('checkVerification', {message: 'Your address is not verified.'})
+  })
+})
 
 module.exports = () => router

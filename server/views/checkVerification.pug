@@ -1,0 +1,11 @@
+html
+  head
+    title= 'Is your address verified for Satellite?'
+  body
+    h1= message
+    form(action='/checkVerification' method='POST')
+      div
+        label(for='address') Ethereum Address: 
+        input(name='address' placeholder='0x8beef......')
+      div
+        button(type='submit') Check address
