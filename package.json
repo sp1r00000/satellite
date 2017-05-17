@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "truffle test",
-    "start": "truffle compile && truffle deploy --network binary && truffle exec ./app/server.js --network binary"
+    "start": "truffle compile && truffle deploy --network binary && truffle exec ./server/server.js --network binary"
   },
   "repository": {
     "type": "git",
