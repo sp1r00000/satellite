@@ -53,19 +53,10 @@ router.post('/code', function (req, res) {
   // send token to contract and send code to client
   ProofOfEmail.deployed()
   .then(instance => {
-    var token = web3.sha3(code);
+    var token = web3.sha3(req.body.code);
     return instance.confirm(
       web3.sha3(token, {encoding: 'hex'})
     );
-  })
-  .then(() => {
-    var request = email.sendCodeEmail(req.body.email, code);
-    sg.API(request, (err, response) => {
-      if(!err)
-        res.status(200).send(`Verification email sent to ${req.body.email}`);
-      else
-        res.status(400).send('Failure sending mail');
-    });
   })
 })
 
