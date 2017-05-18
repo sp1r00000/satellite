@@ -20,5 +20,4 @@ addons:
 install:
   - npm install
 script:
-  - truffle compile
-  - truffle test
+  - npm test
