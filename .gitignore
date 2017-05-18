@@ -2,3 +2,4 @@ node_modules/
 build/
 sendgrid.env
 *.swp
+bundle.js
