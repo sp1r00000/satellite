@@ -30,11 +30,13 @@ Modules.watch = () => {
 
 
 Modules.syncAll = () => { // can change `fromBlock` if this is slow
-  satelliteInstance.ModuleRegistered({}, {fromBlock: 0, toBlock: 'latest'}).get((err, evnt) => {
+  satelliteInstance.ModuleRegistered({}, {fromBlock: 0, toBlock: 'latest'}).get((err, evntLog) => {
     if(err) throw err;
-    else if(evnt.keys.length == 0) console.log('Nothing to sync.');
+    else if(evntLog.length == 0) console.log('Nothing to sync.');
     else{
-      Modules.syncEntryByName(evnt.args.moduleName);
+      for(let evnt of evntLog){
+        Modules.syncEntryByName(evnt.args.moduleName);
+      }
     }
   })
 };
@@ -49,7 +51,7 @@ Modules.syncEntryByName = (name) => {
       name,
       owner,
       url,
-      createdAt: created
+      createdAt: created.toNumber()
     });
   });
 };

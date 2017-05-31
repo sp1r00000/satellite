@@ -1,12 +1,12 @@
 import { Template } from 'meteor/templating';
 import { Modules } from '/imports/api/modules.js';
-import './body.html';
+import './modules.html';
  
-Template.body.onCreated(() => {
+Template.modules.onCreated(() => {
   Meteor.subscribe('modules');
 });
 
-Template.body.helpers({
+Template.modules.helpers({
   moduleIndex() {
     return Modules.find({});
   },

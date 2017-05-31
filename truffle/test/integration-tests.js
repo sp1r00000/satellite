@@ -9,7 +9,7 @@ let satelliteInstance;
 let proofOfEmailInstance;
 let getAccts = Bluebird.promisify(web3.eth.getAccounts);
 
-describe('Tests that require Satellite and ProofOfEmail', () => {
+describe.skip('Tests that require Satellite and ProofOfEmail', () => {
 
 before('Preparation', () => {
   return getAccts()

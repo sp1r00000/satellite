@@ -13,8 +13,10 @@ module.exports = {
     },
     kovan: {
       network_id: '42',
+      gas: 3000000,
       host: 'localhost',
-      port: 8545
+      port: 8545,
+      from: '0x00E0B33cDb3AF8B55CD8467d6d13BC0Ba8035acF'
     }
   },
   mocha: {

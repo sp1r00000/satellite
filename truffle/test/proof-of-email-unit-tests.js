@@ -5,7 +5,7 @@ let instance;
 let email = 'nycacevi@inboxbear.com';
 let code = 'abc123';
 
-describe('Proof of email contract', () => {
+describe.skip('Proof of email contract', () => {
 contract('ProofOfEmail', accounts => {
   let address = accounts[3];
 

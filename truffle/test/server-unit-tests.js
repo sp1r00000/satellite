@@ -2,7 +2,7 @@ const request = require('supertest');
 const moduleIndex = require('../server/module-index');
 require('./satellite-unit-tests.js')
 
-describe('Tests of our minimal server', () => {
+describe.skip('Tests of our minimal server', () => {
 contract('ProofOfEmail', accounts => {
   let email = 'nycacevi@inboxbear.com';
   let address = accounts[3];
