@@ -1,0 +1,14 @@
+// Remark: Code mostly taken from: https://github.com/melonproject/portal
+import { Meteor } from 'meteor/meteor';
+
+// Collections
+import { Modules } from '/imports/api/modules';
+
+// EXECUTION
+Meteor.startup(() => {
+  Modules.remove({});
+  console.log('Syncing module index');
+  Modules.syncAll();
+  Modules.watch();
+  console.log('Watching for changes to module index');
+});

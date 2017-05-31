@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Module Shop</h1>
+    </header>
+ 
+    <ul>
+      {{#each moduleIndex}}
+        {{> entry}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="entry">
+  <li>{{name}}</li>
+</template>

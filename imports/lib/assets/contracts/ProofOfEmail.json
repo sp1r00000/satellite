@@ -1,0 +1,408 @@
+{
+  "contract_name": "ProofOfEmail",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_data",
+          "type": "address"
+        }
+      ],
+      "name": "canReverse",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_new",
+          "type": "address"
+        }
+      ],
+      "name": "setOwner",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        },
+        {
+          "name": "_field",
+          "type": "string"
+        }
+      ],
+      "name": "lookupHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        },
+        {
+          "name": "_puzzle",
+          "type": "bytes32"
+        },
+        {
+          "name": "_emailHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "puzzle",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_emailHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "request",
+      "outputs": [],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "bytes32"
+        },
+        {
+          "name": "_key",
+          "type": "string"
+        }
+      ],
+      "name": "getAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_new",
+          "type": "uint256"
+        }
+      ],
+      "name": "setFee",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        },
+        {
+          "name": "_field",
+          "type": "string"
+        }
+      ],
+      "name": "lookup",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_code",
+          "type": "bytes32"
+        }
+      ],
+      "name": "confirm",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        },
+        {
+          "name": "_emailHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "overrideConfirm",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "drain",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "hasReverse",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        }
+      ],
+      "name": "certified",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "fee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getReverse",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_data",
+          "type": "address"
+        }
+      ],
+      "name": "reverse",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "who",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "emailHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "Requested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "who",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "emailHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "name": "puzzle",
+          "type": "bytes32"
+        }
+      ],
+      "name": "Puzzled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "name": "reverse",
+          "type": "address"
+        }
+      ],
+      "name": "ReverseConfirmed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "name": "reverse",
+          "type": "address"
+        }
+      ],
+      "name": "ReverseRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "reverse",
+          "type": "address"
+        }
+      ],
+      "name": "Confirmed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "reverse",
+          "type": "address"
+        }
+      ],
+      "name": "Revoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "old",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "current",
+          "type": "address"
+        }
+      ],
+      "name": "NewOwner",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x606060405260008054600160a060020a03191633600160a060020a0316178155600355341561002a57fe5b5b6109158061003a6000396000f300606060405236156100d55763ffffffff60e060020a60003504166306b2ff4781146100d757806313af4035146101075780632650b988146101255780634b59e8801461019757806359c87d70146101bb5780636795dbcd146101c857806369fe0e2d1461023b57806370c4d5f214610250578063797af627146103305780637a6b8c4d146103575780638da5cb5b146103785780639890220b146103a4578063ac72c120146103b6578063cc1d4c02146103dd578063ddca3f431461040d578063df57b7421461042f578063e30bd7401461045e575bfe5b34156100df57fe5b6100f3600160a060020a03600435166104fa565b604080519115158252519081900360200190f35b341561010f57fe5b610123600160a060020a0360043516610502565b005b341561012d57fe5b60408051602060046024803582810135601f8101859004850286018501909652858552610185958335600160a060020a0316959394604494939290920191819084018382808284375094965061057695505050505050565b60408051918252519081900360200190f35b341561019f57fe5b610123600160a060020a0360043516602435604435610596565b005b61012360043561060a565b005b34156101d057fe5b60408051602060046024803582810135601f810185900485028601850190965285855261021f958335959394604494939290920191819084018382808284375094965061065495505050505050565b60408051600160a060020a039092168252519081900360200190f35b341561024357fe5b610123600435610673565b005b341561025857fe5b60408051602060046024803582810135601f81018590048502860185019096528585526102b0958335600160a060020a0316959394604494939290920191819084018382808284375094965061069895505050505050565b6040805160208082528351818301528351919283929083019185019080838382156102f6575b8051825260208311156102f657601f1990920191602091820191016102d6565b505050905090810190601f1680156103225780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561033857fe5b6100f36004356106a7565b604080519115158252519081900360200190f35b341561035f57fe5b610123600160a060020a0360043516602435610791565b005b341561038057fe5b61021f6107e1565b60408051600160a060020a039092168252519081900360200190f35b34156103ac57fe5b6101236107f0565b005b34156103be57fe5b6100f3600435610844565b604080519115158252519081900360200190f35b34156103e557fe5b6100f3600160a060020a0360043516610864565b604080519115158252519081900360200190f35b341561041557fe5b610185610885565b60408051918252519081900360200190f35b341561043757fe5b61021f60043561088b565b60408051600160a060020a039092168252519081900360200190f35b341561046657fe5b6102b0600160a060020a03600435166108a9565b6040805160208082528351818301528351919283929083019185019080838382156102f6575b8051825260208311156102f657601f1990920191602091820191016102d6565b505050905090810190601f1680156103225780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60005b919050565b60005433600160a060020a0390811691161461051d57610572565b60008054604051600160a060020a03808516939216917f70aea8d848e8a90fb7661b227dc522eb6395c3dac71b63cb59edd5c9899b236491a360008054600160a060020a031916600160a060020a0383161790555b5b50565b600160a060020a0382166000908152600260205260409020545b92915050565b60005433600160a060020a039081169116146105b157610604565b600082815260046020908152604091829020839055815184815291518392600160a060020a038716927f76babef7e9f1065118be3f9d7094016a1cc06dd12811501c7712deb22144f37b92918290030190a35b5b505050565b60035434101561061957610572565b6040518190600160a060020a033316907f070669e6be82aa9b077a096b0f9617893a4dc5cb05897e27fd7a6112c8e6629e90600090a35b5b50565b600082815260016020526040902054600160a060020a03165b92915050565b60005433600160a060020a0390811691161461068e57610572565b60038190555b5b50565b6105906108b7565b5b92915050565b6040805182815281516020918190038201902060009081526004909152908120548015156106d45761078b565b6040805184815281516020918190038201902060009081526004825282812081905583815260019091522054600160a060020a031615158061072d5750600160a060020a03331660009081526002602052604090205415155b156107375761078b565b60008181526001602090815260408083208054600160a060020a03191633600160a060020a031690811790915580845260029092528083208490555190916000805160206108ca83398151915291a2600191505b50919050565b60005433600160a060020a039081169116146107ac576107dc565b600160a060020a038216600081815260026020526040808220849055516000805160206108ca8339815191529190a25b5b5050565b600054600160a060020a031681565b60005433600160a060020a0390811691161461080b57610840565b604051600160a060020a0333811691309091163180156108fc02916000818181858888f1935050505015156108405760006000fd5b5b5b565b600081815260016020526040902054600160a060020a031615155b919050565b600160a060020a03811660009081526002602052604090205415155b919050565b60035481565b600081815260016020526040902054600160a060020a03165b919050565b6104fd6108b7565b5b919050565b604080516020810190915260008152905600d415b905d4dd806bfba99a7a0e6351bd0c9db3a9912add21c0e6bef4479f673fa165627a7a72305820ff26fedf48d70475becb83129995d47995a99cb67fc4a7a661553ab26c26f34e0029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1496155152867
+}

@@ -3,3 +3,7 @@ build/
 sendgrid.env
 *.swp
 bundle.js
+mup.js
+settings.json
+fullchain.pem
+privkey.pem
