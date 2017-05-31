@@ -14,7 +14,7 @@ module.exports = {
     kovan: {
       network_id: '42',
       host: 'localhost',
-      port: 8547
+      port: 8545
     }
   },
   mocha: {
