@@ -18,3 +18,5 @@ ecmascript@0.7.3              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3            # Server-side component of the `meteor shell` command
 kadira:blaze-layout
 kadira:flow-router
+http
+check
