@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/truffle test",
-    "local": "./node_modules/.bin/truffle deploy --network binary && truffle exec ./server/server.js --network binary",
-    "kovan": "./node_modules/.bin/truffle deploy --network kovan && truffle exec ./server/server.js --network kovan"
+    "test": "truffle test",
+    "local": "truffle deploy --network binary && truffle exec ./server/server.js --network binary",
+    "kovan": "truffle deploy --network kovan && truffle exec ./server/server.js --network kovan"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "sendgrid": "^5.0.0",
     "sentencer": "^0.1.5",
     "supertest": "^3.0.0",
+    "truffle": "^3.2.5",
     "truffle-contract": "^2.0.0",
     "web3": "^0.19.0"
   }
