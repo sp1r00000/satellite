@@ -17,10 +17,7 @@ addons:
       - gcc-4.8
       - g++-4.8
       - clang
-env:
-  - TRUFFLE_DIR=truffle
-  - METEOR_DIR=meteor
 install:
-  - cd $TRUFFLE_DIR && npm install
+  - cd truffle && npm install
 script:
-  - cd $TRUFFLE_DIR && npm test
+  - cd truffle && npm test
