@@ -20,4 +20,4 @@ addons:
 install:
   - cd truffle && npm install
 script:
-  - cd truffle && npm test
+  - npm test
